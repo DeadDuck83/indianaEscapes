@@ -1,6 +1,10 @@
 
 // Create an array of words
+var words = ["rope", "map", "danger"];
 // Choose words randomly
+var choosenWord = Math.floor(Math.random() * words.length);
+console.log(choosenWord);
+
 // Create underscores based on wordlength
 // Get User Guess
 // Check if it is right
