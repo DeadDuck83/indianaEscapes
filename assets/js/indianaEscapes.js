@@ -6,6 +6,7 @@ var words = ["rope", "map", "danger"];
 var rightLetter = [];
 var wrongLetter = [];
 var underScore = [];
+var death = 3;
 // Choose words randomly
 var randomNumber = Math.floor(Math.random() * words.length);
 var chosenWord = words[randomNumber];
@@ -13,48 +14,55 @@ var chosenWord = words[randomNumber];
 
 
 // Create underscores based on wordlength
-
 var generateUnderscore = function () {
+    // cylces through Chosen word, counts letters and creates "_"
     for (var i = 0; i < chosenWord.length; i++) {
         underScore.push("_");
     }
+    // Adds underscores to element with id="hiddenWord"
     document.getElementById("hiddenWord").innerHTML = underScore.join(" ");
+    // ends the function
     return underScore;
 
 }
 generateUnderscore();
 
 // Get User Guess
-document.addEventListener("keydown", userGuess, false);
-function userGuess(event) {
-    // Capture which key is being pressed
-    var userKeyPress = event.which || event.keyCode;
-    var letterPress = String.fromCharCode(userKeyPress);
-    // Check if it is right, but first break word into array
-    characterLetterList = chosenWord.split('');
-
-    if (characterLetterList.includes(letterPress.toLowerCase())) {
-        console.log("yes");
-        // check if the letter is already in the array
-        if (!rightLetter.includes(letterPress)) {
-            rightLetter.push(letterPress);
-        }
-        document.getElementById("right_letter").innerHTML = rightLetter;
-    } else {
-        console.log("no");
-        // check if the letter is already in the array
-        if (!wrongLetter.includes(letterPress)) {
-            wrongLetter.push(letterPress);
-        }
-        document.getElementById("wrong_letter").innerHTML = wrongLetter;
-    }
-    console.log(characterLetterList.indexOf(letterPress.toLowerCase()));
+document.onkeyup = function (event) {
+    // sets guess to the key pressed
+    var guess = event.key;
+    // calls userGuess function with guess as parameter
+    userGuess(guess)
 }
+// Split up user guess into an array
+function userGuess(guess) {
+    // creates a list of letters for an array
+    characterLetterList = chosenWord.split('');
+    // 
+    var i = characterLetterList.indexOf(guess);
 
-// Replace underscores with corresponding correct letter
+    if (i !== -1) {
+        if (!rightLetter.includes(guess)) {
+            underScore[i] = guess;
+            rightLetter.push(guess);
+            document.getElementById("hiddenWord").innerHTML = underScore.join(" ");
+            console.log(rightLetter);
+        }
+    } else if (i === -1) {
+        if (!wrongLetter.includes(guess)) {
+            wrongLetter.push(guess);
+            console.log(wrongLetter);
+        }
+    }
+    if (rightLetter.length === chosenWord.length) {
+        alert("You won")
+    }
+    if (wrongLetter.length === death){
+        alert("totes dead bra");
+        console.log(death);
 
-
-
+    }
+}
 
 
 // PIE IN THE SKY - It would be cool to have this set to a classic arcade game, like pitfall or maybe a movie like Indiana Jones and the Temple of Doom.

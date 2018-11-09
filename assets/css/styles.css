@@ -1,0 +1,33 @@
+body {
+    background-image: url(../../assets/image/background_2000.gif);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    height: 100vh;
+}
+
+.leftCliff {
+    background-image: url(../../assets/image/leftCliff.png);
+    background-repeat: no-repeat;
+    background-position: right -70px;
+    height: 100vh;
+    z-index:2;
+}
+.main-game {
+    position:absolute;
+    visibility: visible;
+    overflow: visible;
+    z-index:1;
+}
+
+.rightCliff {
+    background-image: url(../../assets/image/rightCliff.png);
+    background-repeat: no-repeat;
+    background-position: left -70px;
+    height: 100vh;
+    z-index:2;
+}
+
+.game-settings {
+    z-index:90;
+}
