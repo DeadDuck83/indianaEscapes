@@ -4,6 +4,16 @@ body {
     background-repeat: no-repeat;
     background-position: center bottom;
     height: 100vh;
+    font-family: 'arcadeClassic', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+@font-face {
+    font-family: 'arcadeClassic';
+    src: url(../font/arcadeClassic/ARCADECLASSIC.ttf) format("truetype");
+}
+h2 {
+    text-align:center;
+    margin:0 auto;
 }
 
 .leftCliff {
@@ -19,6 +29,11 @@ body {
     overflow: visible;
     z-index:1;
 }
+div#hiddenWord {
+    text-align: center;
+    margin: 0 auto;
+    font-size: 4em;
+}
 
 .rightCliff {
     background-image: url(../../assets/image/rightCliff.png);
@@ -30,4 +45,92 @@ body {
 
 .game-settings {
     z-index:90;
+    
+}
+#wrong_letter {
+    font-size: 2em;
+    margin:0 auto;
+    text-align: center;
+}
+
+/* Flex testing */
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: flex-start;
+    height:400px;
+    margin:auto 0 0 0;
+    }
+
+.flex-left {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: stretch;
+    width:350px;
+    /* background-color: rgba(155, 134, 222, .5); */
+    padding:1px;
+    margin:1px;
+    }
+
+.flex-middle {
+    order: 0;
+    flex: 1 0 auto;
+    align-self: baseline;
+    /* background-color: rgba(70, 134, 222, .5); */
+    background-image: url(../../assets/image/bridge_repeat.png);
+    background-repeat:repeat-x;
+    background-position: top;
+    height:150px;
+    margin-top: -20px;
+    }
+
+.flex-right {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: stretch;
+    width:350px;
+    /* background-color: rgba(250, 70, 70, .5); */
+
+    padding:1px;
+    margin:1px;
+    }
+.cliff-left-img {
+    top: -514px;
+    position: absolute;
+    left: -260px;
+}
+.cliff-right-img {
+    top: -514px;
+    position: absolute;
+    right: -260px;
+}
+.intro-banner img {
+    margin: 0 auto;
+}
+#start-game {
+    position: fixed;
+    top: 24%;
+    left: 35%;
+    z-index: 949;
+}
+#start-game .start-game-modal {
+    width: 500px;
+    height: 240px;
+    background-color: #fff;
+    color: darkcyan;
+    z-index: 950;
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+}
+button#erase-button {
+    padding: 1px 32px;
+    border-radius: 5px;
+    background-color: lightseagreen;
+    color: #fff;
+    font-size: 2em;
+    margin: 10px;
 }

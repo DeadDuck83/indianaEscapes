@@ -51,6 +51,7 @@ function userGuess(guess) {
     } else if (i === -1) {
         if (!wrongLetter.includes(guess)) {
             wrongLetter.push(guess);
+            document.getElementById("wrong_letter").innerHTML = wrongLetter;
             console.log(wrongLetter);
         }
     }
