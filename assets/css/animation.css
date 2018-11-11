@@ -1,0 +1,31 @@
+@-webkit-keyframes MOVE-BG {
+	from {
+		-webkit-transform: translateX(0);
+	}
+	to { 
+		-webkit-transform: translateX(-187%);
+	}
+}
+
+#content {
+	height: 300px;
+    text-align: center;
+    font-size: 26px;
+    color: #000;	
+    position: relative;
+}
+
+.bg{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+	background: url(http://www.gstatic.com/webp/gallery/1.jpg) 0% 0% repeat;
+    z-index: -1;
+    
+    -webkit-animation-name: MOVE-BG;
+	-webkit-animation-duration: 100s;
+	-webkit-animation-timing-function: linear;
+	-webkit-animation-iteration-count: infinite;
+}

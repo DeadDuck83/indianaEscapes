@@ -29,7 +29,7 @@ h2 {
     overflow: visible;
     z-index:1;
 }
-div#hiddenWord {
+div#word-to-guess {
     text-align: center;
     margin: 0 auto;
     font-size: 4em;
@@ -61,7 +61,7 @@ div#hiddenWord {
     justify-content: flex-start;
     align-content: center;
     align-items: flex-start;
-    height:400px;
+    height:325px;
     margin:auto 0 0 0;
     }
 
@@ -112,19 +112,22 @@ div#hiddenWord {
 }
 #start-game {
     position: fixed;
-    top: 24%;
-    left: 35%;
-    z-index: 949;
+    right:0;
+    left:0;
+    margin:0 auto;
+    z-index: 1149;
+    margin:auto;
+    top:30vh;
 }
 #start-game .start-game-modal {
     width: 500px;
-    height: 240px;
     background-color: #fff;
     color: darkcyan;
     z-index: 950;
     padding: 20px;
     text-align: center;
     border-radius: 20px;
+    margin:auto;
 }
 button#erase-button {
     padding: 1px 32px;
@@ -133,4 +136,65 @@ button#erase-button {
     color: #fff;
     font-size: 2em;
     margin: 10px;
+}
+.fixed-animation {
+    position: fixed;
+    bottom: 0;
+    height: 700px;
+    /* background-color: rgba(23,16,47,0.5); */
+    width: 100%;
+    z-index: 1040;
+}
+.win-modal {
+    width: 300px;
+    height:300px;
+}
+.win-modal button {
+    background-color:darkcyan;
+    margin: 0 auto;
+    display:block;
+}
+.swal-title {
+    color: darkcyan;
+}
+
+.statistics {
+    background-color:#7b386c;
+    color:#fff;
+    padding:10px;
+}
+.swal-button-container {
+    margin: 0 auto;
+    display: block;
+    color:darkcyan;
+
+}
+
+.character {
+    position: absolute;
+    bottom: 273px;
+}
+img.character.indy-landing {
+    left:30px;
+}
+img.character.indy-standing {
+    left:100px;
+}
+img.character.indy-walking {
+    left:220px;
+}
+img.character.indy-whip {
+    left:350px;
+}
+img.character.skel-attacking {
+    left:340px;
+    bottom: 238px;
+}
+img.character.skel-standing {
+    left:640px;
+    bottom: 248px;
+}
+img.character.skel-walking {
+    left: 900px;
+    bottom: 238px;
 }
