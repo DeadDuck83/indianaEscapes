@@ -9,7 +9,7 @@ body {
 
 @font-face {
     font-family: 'arcadeClassic';
-    src: url(../font/arcadeClassic/ARCADECLASSIC.ttf) format("truetype");
+    src: url(../font/arcadeClassic/ARCADECLASSIC.ttf)  format("truetype");
 }
 h2 {
     text-align:center;
