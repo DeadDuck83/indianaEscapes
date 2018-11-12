@@ -8,11 +8,14 @@ var wrongLetters = [];
 var winCount = 0;
 var lossCount = 0;
 var guessesLeft = 5;
+var music1 = new Audio("./assets/music/adventurousMusic.mp3");
 
-
+music1.play();
+    music1.loop = true;
 // Function that runs the game.
 
 function startGame() {
+    
     // select a word from an array
     chosenWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
     // split word up into an array of letters
