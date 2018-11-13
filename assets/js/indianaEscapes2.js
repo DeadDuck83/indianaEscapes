@@ -9,9 +9,28 @@ var winCount = 0;
 var lossCount = 0;
 var guessesLeft = 5;
 var music1 = new Audio("./assets/music/adventurousMusic.mp3");
+var isPlaying = false;
 
-music1.play();
-    music1.loop = true;
+//set object referenced
+playbtn = document.getElementById("playPauseBtn");
+// event handler
+playbtn.addEventListener("click", playPause)
+// function for toggle
+function playPause() {
+    if(isPlaying) {
+        music1.pause();
+        playbtn.style.background = "url(./assets/image/mute-audio.gif) no-repeat";
+        isPlaying = false;
+    } else {
+        music1.play();
+        music1.loop = true;
+        playbtn.style.background = "url(./assets/image/play-audio.gif) no-repeat";
+        isPlaying = true;
+    }
+}
+
+// music1.play();
+//     music1.loop = true;
 // Function that runs the game.
 
 function startGame() {

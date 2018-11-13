@@ -198,3 +198,15 @@ img.character.skel-walking {
     left: 900px;
     bottom: 238px;
 }
+#playPauseBtn {
+    background-image: url(../../assets/image/mute-audio.gif);
+    width: 35px;
+    height: 28px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    z-index: 9999;
+    outline: none;
+    border: none;
+    margin: 16px;
+}
