@@ -175,7 +175,8 @@ button#erase-button {
     bottom: 273px;
 }
 img.character.indy-landing {
-    left:30px;
+    /* left: -110px!important; */
+    bottom: 362px;
 }
 img.character.indy-standing {
     left:100px;
