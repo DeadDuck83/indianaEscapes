@@ -17,7 +17,7 @@ playbtn = document.getElementById("playPauseBtn");
 playbtn.addEventListener("click", playPause)
 // function for toggle
 function playPause() {
-    if(isPlaying) {
+    if (isPlaying) {
         music1.pause();
         playbtn.style.background = "url(./assets/image/mute-audio.gif) no-repeat";
         isPlaying = false;
@@ -34,7 +34,7 @@ function playPause() {
 // Function that runs the game.
 
 function startGame() {
-    
+
     // select a word from an array
     chosenWord = wordOptions[Math.floor(Math.random() * wordOptions.length)];
     // split word up into an array of letters
@@ -77,11 +77,12 @@ function checkLetters(letter) {
                 underscore[i] = letter;
             }
         }
+        whipIt();
     }
     // wrong letter guesses
     else {
         wrongLetters.push(letter);
-        guessesLeft--;      
+        guessesLeft--;
     }
 }
 // after every game. itterate HTML
@@ -94,13 +95,14 @@ function gameComplete() {
 
     if (lettersinWord.toString() == underscore.toString()) {
         winCount++;
+        walkOff();
         // alert with cool 3rd party alert message editor
         swal({
             title: "Good job, you saved Indy!",
             button: "Play Again?",
             icon: "success",
             className: "win-modal",
-          });
+        });
         document.getElementById("win-counter").innerHTML = winCount;
 
         startGame();
@@ -112,7 +114,7 @@ function gameComplete() {
             title: "You are skeleton food!",
             button: "Try again?",
             icon: "error",
-          });
+        });
         document.getElementById("loss-counter").innerHTML = lossCount;
         startGame();
     }
@@ -131,3 +133,67 @@ document.onkeyup = function (e) {
 
 
 }
+
+// animation section
+// ===================================================
+var winWidthMid = window.innerWidth / 2;
+var characterWidth = (300 / 2);
+console.log(winWidthMid, characterWidth);
+
+function getCurrentPosition() {
+
+}
+
+
+function whipIt() {
+    var elem = document.getElementById("walking-indy");
+    elem.style.transform = "scaleX(-1)";
+    elem.style.left = (winWidthMid - 200) + "px";
+    elem.src = "./assets/image/whip.gif";
+    setTimeout(function () {
+        elem.style.transform = "scaleX(1)";
+        elem.style.left = (winWidthMid - characterWidth) + "px";
+        elem.src = "./assets/image/standing.gif";
+    }, 2200);
+}
+
+function walkOff() {
+    var elem = document.getElementById("walking-indy"),
+        speed = 3,
+        currentPos = 0;
+        elem.src = "./assets/image/walking.gif";
+        elem.style.transform = "scaleX(-1)";
+    var motionInterval = setInterval(function () {
+        currentPos += speed;
+        if (currentPos >= (winWidthMid * 2)) {
+            clearInterval(motionInterval);
+            console.log(currentPos);
+        }
+    }, 20);
+}
+
+function animationStart() {
+    var elem = document.getElementById("walking-indy"),
+        speed = 3,
+        currentPos = 0;
+    // Reset the element
+    elem.style.left = 0 + "px";
+    elem.style.right = "auto";
+    var motionInterval = setInterval(function () {
+        currentPos += speed;
+        if (currentPos >= (winWidthMid - characterWidth) && speed > 0) {
+            currentPos = (winWidthMid - characterWidth);
+            speed = 0;
+            //    elem.style.width = parseInt(elem.style.width)*2+"px";
+            //    elem.style.height = parseInt(elem.style.height)*2+"px";
+            elem.src = "./assets/image/standing.gif";
+            clearInterval(motionInterval);
+        }
+        if (currentPos <= 0 && speed < 0) {
+            clearInterval(motionInterval);
+        }
+        elem.style.left = currentPos + "px";
+    }, 20);
+    return currentPos;
+}
+animationStart();
